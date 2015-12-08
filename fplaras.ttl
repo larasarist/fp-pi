@@ -1,0 +1,98 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dbpedia-id: <http://id.dbpedia.org/resource/> .
+@prefix fp: <http://fp.com> . 
+@prefix fp-prop: <http://fp-prop.com> .
+
+#DEKLARASI CLASS
+dbpedia-id:Kecamatan a rdfs:Class .
+dbpedia-id:Penyakit a rdfs:Class .
+fp:SurabayaBagian a rdfs:Class .
+fp:tahun a rdfs:Class . 
+
+
+#DEKLARASI PROPERTIES
+fp-prop:tahun a rdf:Property .
+fp-prop:tahun rdfs:domain dbpedia-id:Kecamatan .
+fp-prop:tahun rdfs:range fp:tahun .
+
+fp-prop:lokasi a rdf:Property .
+fp-prop:lokasi rdfs:domain dbpedia-id:Kecamatan .
+fp-prop:lokasi rdfs:range fp:SurabayaBagian .
+
+fp-prop:kasus a rdf:Property .
+fp-prop:kasus rdfs:domain fp:tahun .
+fp-prop:kasus rdfs:range dbpedia-id:Penyakit .
+
+fp:prop:jumlah a rdf:Property .
+fp-prop:jumlah rdfs:domain dbpedia-id:Penyakit .
+fp-prop:jumlah rdfs:range xsd:integer .
+
+fp-prop:jumlahDokterUmum a rdf:Property . 
+fp-prop:jumlahDokterUmum rdfs:domain fp:tahun .
+fp-prop:jumlahDokterUmum rdfs:range xsd:integer . 
+
+fp-prop:jumlahDokterGigi a rdf:Property . 
+fp-prop:jumlahDokterGigi rdfs:domain fp:tahun .
+fp-prop:jumlahDokterGigi rdfs:range xsd:integer . 
+
+fp-prop:jumlahBidan a rdf:Property . 
+fp-prop:jumlahBidan rdfs:domain fp:tahun .
+fp-prop:jumlahBidan rdfs:range xsd:integer . 
+
+fp-prop:jumlahPerawat a rdf:Property . 
+fp-prop:jumlahPerawat rdfs:domain fp:tahun .
+fp-prop:jumlahPerawat rdfs:range xsd:integer . 
+
+#deklarasi a kecamatan //gak perlu
+<http://id.dbpedia.org/resource/Asemrowo,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Benowo,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Bubutan,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Dukuh_Pakis,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Gayungan,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Genteng,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Gubeng,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Gunung_Anyar,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Jambangan,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Karang_Pilang,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Kenjeran,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Krembangan,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Lakarsantri,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Mulyorejo,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Pabean_Cantikan,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Pakal,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Rungkut,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Sambikerep,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Sawahan,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Semampir,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Simokerto,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Sukolilo,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Sukomanunggal,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Tambaksari,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Tandes,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Tegalsari,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Tenggilis_Mejoyo,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Wiyung,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Wonocolo,_Surabaya> a dbpedia-id:Kecamatan .
+<http://id.dbpedia.org/resource/Wonokromo,_Surabaya> a dbpedia-id:Kecamatan .
+
+#deklarasi wilayah
+fp:timur a fp:SurabayaBagian .
+fp:barat a fp:SurabayaBagian .
+fp:pusat a fp:SurabayaBagian .
+fp:selatan a fp:SurabayaBagian .
+fp:utara a fp:SurabayaBagian .
+
+
+#deklarasi penyakit
+dbpedia-id:Demam_berdarah a dbpedia-id:Penyakit .
+dbpedia-id:Influenza a dbpedia-id:Penyakit.
+
+#deklarasi tahun
+fp:2009 a fp:tahun .
+fp:2010 a fp:tahun .
+fp:2011 a fp:tahun .
+fp:2012 a fp:tahun .
+fp:2013 a fp:tahun .
+fp:2014 a fp:tahun .
