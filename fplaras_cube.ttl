@@ -1,0 +1,210 @@
+@prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: 	<http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: 	<http://www.w3.org/2002/07/owl#> .
+@prefix dbpedia-id: <http://id.dbpedia.org/resource/> .
+@prefix dbpedia: <http://dbpedia.org/resource/> .
+@prefix sdmx: 	<http://purl.org/linked-data/sdmx#> .
+@prefix sdmx-concept: <http://purl.org/linked-data/sdmx/2009/concept#> .
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+
+
+@prefix fp: <http://fp.com> . 
+@prefix fp-prop: <http://fp-prop.com> .
+
+#VOCAB AND PROPERTY--------------
+fp:SurabayaBagian a rdfs:Class .
+fp:tahun a rdfs:Class .
+fp:tenagaMedis a rdfs:Class .
+fp:kecamatan a rdfs:Class .
+fp:penyakit a rdfs:Class .
+
+fp:lokasi a rdfs:Property;
+	rdfs:domain fp:kecamatan;
+	rdfs:range fp:SurabayaBagian .
+
+#SAMEAS
+fp:kecamatan owl:sameAs dbpedia-id:Kecamatan .
+fp:penyakit owl:sameAs dbpedia-id:Penyakit .
+
+#DEKLARASI WILAYAH
+fp:timur a fp:SurabayaBagian .
+fp:barat a fp:SurabayaBagian .
+fp:pusat a fp:SurabayaBagian .
+fp:selatan a fp:SurabayaBagian .
+fp:utara a fp:SurabayaBagian .
+
+
+#DEKLARASI TAHUN
+fp:2009 a fp:tahun .
+fp:2010 a fp:tahun .
+fp:2011 a fp:tahun .
+fp:2012 a fp:tahun .
+fp:2013 a fp:tahun .
+fp:2014 a fp:tahun .
+
+#DEKLARASI TENAGA MEDIS
+fp:dokter a fp:tenagaMedis;
+	owl:sameAs dbpedia:Physician .
+fp:dokterGigi a fp:tenagaMedis;
+	owl:sameAs dbpedia:Dentist .
+fp:bidan a fp:tenagaMedis;
+	owl:sameAs dbpedia:Nurse_midwife .
+fp:perawat a fp:tenagaMedis;
+	owl:sameAs dbpedia:Nursing .
+
+#DEKLARASI PENYAKIT
+fp:demamBerdarah a fp:penyakit;
+	owl:sameAs dbpedia-id:Demam_berdarah .
+fp:influenza a fp:penyakit;
+	owl:sameAs dbpedia-id:Influenza .
+
+#DIMENSIONS AND MEASURES----------------------
+#DIMENSI WAKTU
+fp:refPeriod a rdf:Property, qb:DimensionProperty;
+	rdfs:label "dimensi waktu";
+	rdfs:subPropertyOf sdmx-dimension:refPeriod;
+	rdfs:range fp:tahun;
+	qb:concept sdmx-concept:refPeriod.
+
+#dimensi kecamatan
+fp:refKecamatan a rdf:Property, qb:DimensionProperty;
+	rdfs:label "dimensi kecamatan";
+	rdfs:subPropertyOf sdmx-dimension:refArea;
+	rdfs:range dbpedia-id:Kecamatan;
+	qb:concept sdmx-concept:refArea.
+
+#dimensi wilayah surabaya
+fp:refWilayah a rdf:Property, qb:DimensionProperty;
+	rdfs:label "dimensi wilayah surabaya";
+	rdfs:subPropertyOf sdmx-dimension:refArea;
+	rdfs:range fp:SurabayaBagian;
+	qb:concept sdmx-concept:refArea.
+
+#dimensi penyakit
+fp:refPenyakit a rdf:Property, qb:DimensionProperty;
+	rdfs:label "dimensi jenis penyakit";
+	rdfs:range fp:penyakit .
+
+#dimensi tenaga medis
+fp:refTenagaMedis a rdf:Property, qb:DimensionProperty;
+	rdfs:label "dimensi tenaga medis";
+	rdfs:subPropertyOf sdmx-dimension:occupation;
+	rdfs:range fp:tenagaMedis;
+	qb:concept sdmx-concept:occupation.
+
+#MEASUREMENT------------------------------
+fp:jumlahKasus a rdf:Property, qb:MeasureProperty;
+	rdfs:label "Jumlah Kasus Penyakit";
+	rdfs:subPropertyOf sdmx-measure:obsValue;
+	rdfs:range xsd:integer .
+
+fp:jumlahTenagaMedis a rdf:Property, qb:MeasureProperty;
+	rdfs:label "Jumlah Tenaga Medis";
+	rdfs:subPropertyOf sdmx-measure:obsValue;
+	rdfs:range xsd:integer .
+
+#ATTRIBUTES tahun----------------------------
+fp:tahunAttrb a rdf:Property, qb:AttributeProperty;
+	rdfs:label "TAHUN";
+	rdfs:subPropertyOf sdmx-attribute:unitMeasure;
+	rdfs:range fp:tahun .
+
+#DATA STRUCTURE DEFINITION-------------------------
+fp:dsd a qb:DataStructureDefinition;
+	qb:component
+	#DIMENSINYA
+		[ qb:dimension fp:refWilayah; qb:order 1],
+		[ qb:dimension fp:refKecamatan; qb:order 2 ],
+		[ qb:dimension fp:refPeriod; qb:order 3 ],
+		[ qb:dimension fp:refPenyakit; qb:order 4 ],
+		[ qb:dimension fp:refTenagaMedis; qb:order 5 ];
+	
+	#MEASURESNYA
+	qb:component [ qb:measure fp:jumlahKasus, fp:jumlahTenagaMedis ];
+	
+	#ATTRIBUTES
+	qb:component [ qb:attribute sdmx-attribute:unitMeasure; 
+                   qb:componentRequired "true"^^xsd:boolean;
+                   qb:componentAttachment qb:DataSet; ]
+	.
+
+#DATA SET ------------------------ini dijadiin dua langsung atau jadi dataset terpisah
+fp:dataset1 a qb:DataSet;
+	rdfs:label "Data Set Penyakit dan Tenaga Medis Kota Surabaya";
+	rdfs:comment "Jumlah Kasus Penyakit DBD dan Influenza, beserta Tenaga Medis tersedia per kecamatan di Kota Surabaya";
+	qb:structure fp:dsd .
+
+#OBSERVATIONS----------------------
+fp:obs1 a qb:Observation;
+	qb:dataSet fp:dataset1;
+	#ISI DIMENSINYA APA
+	fp:refWilayah fp:Barat ;
+	fp:refKecamatan <http://id.dbpedia.org/resource/Asemrowo,_Surabaya> ;
+	fp:refPeriod fp:2011 ;
+	fp:refPenyakit fp:influenza;
+	fp:refTenagaMedis fp:dokter ;
+	#ISIATRRIBUTNYA APA
+	sdmx-attribute:unitMeasure <http://dbpedia.org/resource/Year> ;
+	#ISI MEASUREMENTNYA
+	fp:jumlahKasus 15722 ;
+	fp:jumlahTenagaMedis 4 .
+
+fp:obs2 a qb:Observation;
+	qb:dataSet fp:dataset1;
+	#ISI DIMENSINYA APA
+	fp:refWilayah fp:Barat ;
+	fp:refKecamatan <http://id.dbpedia.org/resource/Asemrowo,_Surabaya> ;
+	fp:refPeriod fp:2012 ;
+	fp:refPenyakit fp:influenza;
+	fp:refTenagaMedis fp:dokter ;
+	#ISIATRRIBUTNYA APA
+	sdmx-attribute:unitMeasure <http://dbpedia.org/resource/Year> ;
+	#ISI MEASUREMENTNYA
+	fp:jumlahKasus 15712 ;
+	fp:jumlahTenagaMedis 4 .
+	
+fp:obs3 a qb:Observation;
+	qb:dataSet fp:dataset1;
+	#ISI DIMENSINYA APA
+	fp:refWilayah fp:Barat ;
+	fp:refKecamatan <http://id.dbpedia.org/resource/Asemrowo,_Surabaya> ;
+	fp:refPeriod fp:2013 ;
+	fp:refPenyakit fp:influenza;
+	fp:refTenagaMedis fp:dokter ;
+	#ISIATRRIBUTNYA APA
+	sdmx-attribute:unitMeasure <http://dbpedia.org/resource/Year> ;
+	#ISI MEASUREMENTNYA
+	fp:jumlahKasus 13154 ;
+	fp:jumlahTenagaMedis 4 .
+
+fp:obs4 a qb:Observation;
+	qb:dataSet fp:dataset1;
+	#ISI DIMENSINYA APA
+	fp:refWilayah fp:Barat ;
+	fp:refKecamatan <http://id.dbpedia.org/resource/Asemrowo,_Surabaya> ;
+	fp:refPeriod fp:2014 ;
+	fp:refPenyakit fp:influenza;
+	fp:refTenagaMedis fp:dokter ;
+	#ISIATRRIBUTNYA APA
+	sdmx-attribute:unitMeasure <http://dbpedia.org/resource/Year> ;
+	#ISI MEASUREMENTNYA
+	fp:jumlahKasus 8512 ;
+	fp:jumlahTenagaMedis 4 .
+
+fp:obs5 a qb:Observation;
+	qb:dataSet fp:dataset1;
+	#ISI DIMENSINYA APA
+	fp:refWilayah fp:Barat ;
+	fp:refKecamatan <http://id.dbpedia.org/resource/Asemrowo,_Surabaya> ;
+	fp:refPeriod fp:2009 ;
+	fp:refPenyakit fp:demamBerdarah;
+	fp:refTenagaMedis fp:dokterGigi ;
+	#ISIATRRIBUTNYA APA
+	sdmx-attribute:unitMeasure <http://dbpedia.org/resource/Year> ;
+	#ISI MEASUREMENTNYA
+	fp:jumlahKasus 27 ;
+	fp:jumlahTenagaMedis 2 .
