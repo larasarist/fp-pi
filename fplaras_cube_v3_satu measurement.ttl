@@ -92,7 +92,9 @@ fp:refWilayah a rdf:Property, qb:DimensionProperty;
 #dimensi penyakit
 fp:refPenyakit a rdf:Property, qb:DimensionProperty;
 	rdfs:label "dimensi jenis penyakit";
-	rdfs:range fp:penyakit .
+	rdfs:range fp:penyakit;
+	rdfs:subPropertyOf sdmx-dimension:refPeriod ;
+	qb:concept sdmx-concept:refPeriod .
 
 
 #MEASUREMENT------------------------------
