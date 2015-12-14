@@ -13,9 +13,9 @@
 
 
 @prefix fp: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> . 
-@prefix fp-prop: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#property#> .
-@prefix kasus: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#kasus#> .
-@prefix profesiMedis: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#profesiMedis> .
+@prefix fp-prop: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> .
+@prefix kasus: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> .
+@prefix profesiMedis: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> .
 
 #VOCAB AND PROPERTY--------------
 fp:SurabayaBagian a rdfs:Class .
@@ -67,6 +67,31 @@ kasus:demamBerdarah a fp:penyakit;
 kasus:influenza a fp:penyakit;
 	owl:sameAs dbpedia-id:Influenza .
 
+#DATA SET ------------------------
+fp:dataset1 a qb:DataSet;
+	rdfs:label "Data Set Penyakit dan Tenaga Medis Kota Surabaya";
+	rdfs:comment "Jumlah Kasus Penyakit DBD dan Influenza, beserta Tenaga Medis tersedia per kecamatan di Kota Surabaya";
+	qb:structure fp:dsd .
+
+
+#DATA STRUCTURE DEFINITION-------------------------
+fp:dsd a qb:DataStructureDefinition;
+	qb:component
+	#DIMENSINYA
+		[ qb:dimension fp:refWilayah],
+		[ qb:dimension fp:refKecamatan],
+		[ qb:dimension fp:refPeriod],
+		[ qb:dimension fp:refPenyakit];
+	
+	#MEASURESNYA
+	qb:component [ qb:measure fp:jumlahKasus ];
+	
+	#ATTRIBUTES
+	#qb:component [ qb:attribute sdmx-attribute:unitMeasure; 
+    #               qb:componentRequired "true"^^xsd:boolean;
+    #               qb:componentAttachment qb:DataSet; ]
+	.
+
 #DIMENSIONS AND MEASURES----------------------
 #DIMENSI WAKTU
 fp:refPeriod a rdf:Property, qb:DimensionProperty;
@@ -104,29 +129,6 @@ fp:jumlahKasus a rdf:Property, qb:MeasureProperty;
 	rdfs:range xsd:integer .
 
 
-#DATA STRUCTURE DEFINITION-------------------------
-fp:dsd a qb:DataStructureDefinition;
-	qb:component
-	#DIMENSINYA
-		[ qb:dimension fp:refWilayah],
-		[ qb:dimension fp:refKecamatan],
-		[ qb:dimension fp:refPeriod],
-		[ qb:dimension fp:refPenyakit];
-	
-	#MEASURESNYA
-	qb:component [ qb:measure fp:jumlahKasus ];
-	
-	#ATTRIBUTES
-	#qb:component [ qb:attribute sdmx-attribute:unitMeasure; 
-    #               qb:componentRequired "true"^^xsd:boolean;
-    #               qb:componentAttachment qb:DataSet; ]
-	.
-
-#DATA SET ------------------------
-fp:dataset1 a qb:DataSet;
-	rdfs:label "Data Set Penyakit dan Tenaga Medis Kota Surabaya";
-	rdfs:comment "Jumlah Kasus Penyakit DBD dan Influenza, beserta Tenaga Medis tersedia per kecamatan di Kota Surabaya";
-	qb:structure fp:dsd .
 
 #OBSERVATIONS----------------------
 #ASEMROWO
