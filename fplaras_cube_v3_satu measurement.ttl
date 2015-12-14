@@ -9,13 +9,14 @@
 @prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#> .
 @prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#> .
 @prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix qb: <http://purl.org/linked-data/cube#> .
 
 
 @prefix fp: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> . 
-@prefix fp-prop: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#property#> .
-@prefix kasus: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#kasus#> .
-@prefix profesiMedis: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#profesiMedis> .
+@prefix fp-prop: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> .
+@prefix kasus: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> .
+@prefix profesiMedis: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> .
 
 #VOCAB AND PROPERTY--------------
 fp:SurabayaBagian a rdfs:Class .
