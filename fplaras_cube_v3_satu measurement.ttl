@@ -109,7 +109,7 @@ fp:dsd a qb:DataStructureDefinition;
 		[ qb:dimension fp:refWilayah; qb:order 1 ],
 		[ qb:dimension fp:refKecamatan; qb:order 2 ],
 		[ qb:dimension fp:refPeriod; qb:order 3 ],
-		[ qb:dimension fp:refPenyakit; qb:order 4 ],
+		[ qb:dimension fp:refPenyakit; qb:order 4 ];
 	
 	#MEASURESNYA
 	qb:component [ qb:measure fp:jumlahKasus ];
@@ -744,7 +744,8 @@ fp:obs41 a qb:Observation;
 	#ISIATRRIBUTNYA APA
 	#ISI MEASUREMENTNYA
 	fp:jumlahKasus 11170 ;
-	#fp:jumlahTenagaMedis 3 .
+	#fp:jumlahTenagaMedis 3 
+	.
 
 fp:obs42 a qb:Observation;
 	qb:dataSet fp:dataset1;
