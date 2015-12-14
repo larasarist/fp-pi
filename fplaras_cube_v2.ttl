@@ -13,9 +13,9 @@
 
 
 @prefix fp: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> . 
-@prefix fp-prop: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> .
-@prefix kasus: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> .
-@prefix profesiMedis: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> .
+@prefix fp-prop: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#property#> .
+@prefix kasus: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#kasus#> .
+@prefix profesiMedis: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#profesiMedis> .
 
 #VOCAB AND PROPERTY--------------
 fp:SurabayaBagian a rdfs:Class .
@@ -203,7 +203,7 @@ fp:obs5 a qb:Observation;
 	fp:jumlahKasus 27 ;
 	fp:jumlahTenagaMedis 2 .
 
-p:obs6 a qb:Observation;
+fp:obs6 a qb:Observation;
 	qb:dataSet fp:dataset1;
 	#ISI DIMENSINYA APA
 	fp:refWilayah fp:barat ;
@@ -214,7 +214,7 @@ p:obs6 a qb:Observation;
 	fp:jumlahKasus 51 ;
 	fp:jumlahTenagaMedis 2 .
 
-p:obs7 a qb:Observation;
+fp:obs7 a qb:Observation;
 	qb:dataSet fp:dataset1;
 	#ISI DIMENSINYA APA
 	fp:refWilayah fp:barat ;
@@ -226,7 +226,7 @@ p:obs7 a qb:Observation;
 	fp:jumlahKasus 14 ;
 	fp:jumlahTenagaMedis 2 .
 
-p:obs8 a qb:Observation;
+fp:obs8 a qb:Observation;
 	qb:dataSet fp:dataset1;
 	#ISI DIMENSINYA APA
 	fp:refWilayah fp:barat ;
@@ -238,7 +238,7 @@ p:obs8 a qb:Observation;
 	fp:jumlahKasus 16 ;
 	fp:jumlahTenagaMedis 2 .
 
-p:obs9 a qb:Observation;
+fp:obs9 a qb:Observation;
 	qb:dataSet fp:dataset1;
 	#ISI DIMENSINYA APA
 	fp:refWilayah fp:barat ;
@@ -250,7 +250,7 @@ p:obs9 a qb:Observation;
 	fp:jumlahKasus 22 ;
 	fp:jumlahTenagaMedis 2 .
 
-p:obs10 a qb:Observation;
+fp:obs10 a qb:Observation;
 	qb:dataSet fp:dataset1;
 	#ISI DIMENSINYA APA
 	fp:refWilayah fp:barat ;
@@ -262,7 +262,7 @@ p:obs10 a qb:Observation;
 	fp:jumlahKasus 5;
 	fp:jumlahTenagaMedis 2 .
 
-p:obs11 a qb:Observation;
+fp:obs11 a qb:Observation;
 	qb:dataSet fp:dataset1;
 	#ISI DIMENSINYA APA
 	fp:refWilayah fp:barat ;
@@ -274,7 +274,7 @@ p:obs11 a qb:Observation;
 	#fp:jumlahKasus 5;
 	fp:jumlahTenagaMedis 7 .
 
-p:obs12 a qb:Observation;
+fp:obs12 a qb:Observation;
 	qb:dataSet fp:dataset1;
 	#ISI DIMENSINYA APA
 	fp:refWilayah fp:barat ;
@@ -286,7 +286,7 @@ p:obs12 a qb:Observation;
 	#fp:jumlahKasus 5;
 	fp:jumlahTenagaMedis 6 .
 
-p:obs13 a qb:Observation;
+fp:obs13 a qb:Observation;
 	qb:dataSet fp:dataset1;
 	#ISI DIMENSINYA APA
 	fp:refWilayah fp:barat ;
@@ -298,7 +298,7 @@ p:obs13 a qb:Observation;
 	#fp:jumlahKasus 5;
 	fp:jumlahTenagaMedis 7 .
 
-p:obs13 a qb:Observation;
+fp:obs13 a qb:Observation;
 	qb:dataSet fp:dataset1;
 	#ISI DIMENSINYA APA
 	fp:refWilayah fp:barat ;
@@ -428,7 +428,7 @@ fp:obs22 a qb:Observation;
 	fp:jumlahKasus 14 ;
 	fp:jumlahTenagaMedis 1 .
 
-p:obs23 a qb:Observation;
+fp:obs23 a qb:Observation;
 	qb:dataSet fp:dataset1;
 	#ISI DIMENSINYA APA
 	fp:refWilayah fp:barat ;
@@ -440,7 +440,7 @@ p:obs23 a qb:Observation;
 	#fp:jumlahKasus 5;
 	fp:jumlahTenagaMedis 11 .
 
-p:obs24 a qb:Observation;
+fp:obs24 a qb:Observation;
 	qb:dataSet fp:dataset1;
 	#ISI DIMENSINYA APA
 	fp:refWilayah fp:barat ;
@@ -452,7 +452,7 @@ p:obs24 a qb:Observation;
 	#fp:jumlahKasus 5;
 	fp:jumlahTenagaMedis 14 .
 
-p:obs25 a qb:Observation;
+fp:obs25 a qb:Observation;
 	qb:dataSet fp:dataset1;
 	#ISI DIMENSINYA APA
 	fp:refWilayah fp:barat ;
@@ -464,7 +464,7 @@ p:obs25 a qb:Observation;
 	#fp:jumlahKasus 5;
 	fp:jumlahTenagaMedis 9 .
 
-p:obs26 a qb:Observation;
+fp:obs26 a qb:Observation;
 	qb:dataSet fp:dataset1;
 	#ISI DIMENSINYA APA
 	fp:refWilayah fp:barat ;
@@ -1389,4 +1389,4 @@ fp:obs94 a qb:Observation;
 	#ISIATRRIBUTNYA APA
 	#ISI MEASUREMENTNYA
 	#fp:jumlahKasus 32 ;
-	fp:jumlahTenagaMedis 13.
+	fp:jumlahTenagaMedis 13 .
