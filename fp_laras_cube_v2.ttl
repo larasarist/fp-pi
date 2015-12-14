@@ -13,9 +13,9 @@
 
 
 @prefix fp: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> . 
-@prefix fp-prop: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#property#> .
-@prefix kasus: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#kasus#> .
-@prefix profesiMedis: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#profesiMedis> .
+@prefix fp-prop: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> .
+@prefix kasus: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> .
+@prefix profesiMedis: <https://raw.githubusercontent.com/larasarist/fp-pi/master/fplaras_cube.ttl#> .
 
 #VOCAB AND PROPERTY--------------
 fp:SurabayaBagian a rdfs:Class .
