@@ -600,65 +600,6 @@ fp:obs36 a qb:Observation;
 	#fp:jumlahTenagaMedis 3 
 	.
 
-fp:obs37 a qb:Observation;
-	qb:dataSet fp:dataset1;
-	a fp:recordData;
-	#ISI DIMENSINYA APA
-	fp:refWilayah fp:pusat ;
-	fp:refKecamatan <http://id.dbpedia.org/resource/Bubutan,_Surabaya> ;
-	fp:refPeriod 2011 ;
-	#fp:refPenyakit kasus:demamBerdarah;
-	#hapus;
-	#ISIATRRIBUTNYA APA
-	#ISI MEASUREMENTNYA
-	#fp:jumlahKasus 20 ;
-	#fp:jumlahTenagaMedis 9 
-	.
-
-fp:obs38 a qb:Observation;
-	qb:dataSet fp:dataset1;
-	a fp:recordData;
-	#ISI DIMENSINYA APA
-	fp:refWilayah fp:pusat ;
-	fp:refKecamatan <http://id.dbpedia.org/resource/Bubutan,_Surabaya> ;
-	fp:refPeriod 2014 ;
-	#fp:refPenyakit kasus:demamBerdarah;
-	#hapus;
-	#ISIATRRIBUTNYA APA
-	#ISI MEASUREMENTNYA
-	#fp:jumlahKasus 20 ;
-	#fp:jumlahTenagaMedis 9 
-	.
-
-fp:obs39 a qb:Observation;
-	qb:dataSet fp:dataset1;
-	a fp:recordData;
-	#ISI DIMENSINYA APA
-	fp:refWilayah fp:pusat ;
-	fp:refKecamatan <http://id.dbpedia.org/resource/Bubutan,_Surabaya> ;
-	fp:refPeriod 2011 ;
-	#fp:refPenyakit kasus:demamBerdarah;
-	#hapus;
-	#ISIATRRIBUTNYA APA
-	#ISI MEASUREMENTNYA
-	#fp:jumlahKasus 20 ;
-	#fp:jumlahTenagaMedis 10
-	.
-
-fp:obs40 a qb:Observation;
-	qb:dataSet fp:dataset1;
-	a fp:recordData;
-	#ISI DIMENSINYA APA
-	fp:refWilayah fp:pusat ;
-	fp:refKecamatan <http://id.dbpedia.org/resource/Bubutan,_Surabaya> ;
-	fp:refPeriod 2014 ;
-	#fp:refPenyakit kasus:demamBerdarah;
-	#hapus;
-	#ISIATRRIBUTNYA APA
-	#ISI MEASUREMENTNYA
-	#fp:jumlahKasus 20 ;
-	#fp:jumlahTenagaMedis 9
-	.
 
 #kecamatan BULAK
 fp:obs41 a qb:Observation;
